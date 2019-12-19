@@ -43,8 +43,7 @@ then
   -H "Authorization: Bearer $token" \
   -H "x-goog-api-version: 2" \
   -X POST \
-  -T $4 \
-  -v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$5/publish \
+  -v https://www.googleapis.com/chromewebstore/v1.1/items/$5/publish \
   -d publishTarget=default \
   | \
   jq -r '.publishState'`
