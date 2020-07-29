@@ -22,6 +22,9 @@ inputs:
   publish:
     description: True Or False to publish after upload
     required: true
+  target:
+    description: Publish target. 'default' or 'trustedTesters'
+    required: true
 runs:
   using: docker
   image: Dockerfile
@@ -32,3 +35,4 @@ runs:
     - ${{ inputs.file-name }}
     - ${{ inputs.app-id }}
     - ${{ inputs.publish }}
+    - ${{ inputs.target }}

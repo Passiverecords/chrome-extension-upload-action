@@ -45,7 +45,7 @@ then
   -X POST \
   -T $4 \
   -v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$5/publish \
-  -d publishTarget=default \
+  -d publishTarget=$7 \
   | \
   jq -r '.publishState'`
 
