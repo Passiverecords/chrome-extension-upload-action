@@ -13,9 +13,6 @@ inputs:
   client-id:
     description: Token client id
     required: true
-  client-secret:
-    description: Token client secret
-    required: true
   file-name:
     description: Name of zipped target upload file
     required: true
@@ -28,7 +25,6 @@ runs:
   args:
     - ${{ inputs.refresh-token }}
     - ${{ inputs.client-id }}
-    - ${{ inputs.client-secret }}
     - ${{ inputs.file-name }}
     - ${{ inputs.app-id }}
     - ${{ inputs.publish }}

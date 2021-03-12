@@ -9,7 +9,6 @@ token=`curl \
 -d '{
 	"refresh_token": "'$1'",
 	"client_id": "'$2'",
-	"client_secret": "'$3'",
 	"grant_type": "refresh_token"
 }' \
 -X POST \
@@ -24,8 +23,8 @@ status=`curl \
 -H "Authorization: Bearer $token" \
 -H "x-goog-api-version: 2" \
 -X PUT \
--T $4 \
--v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$5 \
+-T $3 \
+-v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$4 \
 | \
 jq -r '.uploadState'`
 
@@ -34,7 +33,7 @@ then
   exit 1
 fi
 
-if [ $6 == true ] #publish
+if [ $5 == true ] #publish
 then
   publish=`curl \
   --silent \
@@ -43,8 +42,8 @@ then
   -H "Authorization: Bearer $token" \
   -H "x-goog-api-version: 2" \
   -X POST \
-  -T $4 \
-  -v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$5/publish \
+  -T $3 \
+  -v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$4/publish \
   -d publishTarget=default \
   | \
   jq -r '.publishState'`
